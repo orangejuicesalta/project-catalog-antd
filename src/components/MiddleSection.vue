@@ -1,11 +1,10 @@
 <script setup>
-import FromWarehouse from "./FromWarehouse.vue";
-import ToWarehouse from "./ToWarehouse.vue";
 import ChooseBtn from "./ChooseBtn.vue";
 import ProductsList from "./ProductsList.vue";
 import AddWarehouse from "./AddWarehouse.vue";
 import {ref} from 'vue'
 import AntdSelect from "./antdSelect.vue";
+import AutoSelect from "./autoSelect.vue";
 
 let showTransitSelect = ref(false)
 </script>
@@ -17,8 +16,7 @@ let showTransitSelect = ref(false)
       <section class="main__content__section">
         <p>Откуда:</p>
         <p>Куда:</p>
-        <FromWarehouse />
-        <!-- <ToWarehouse /> -->
+        <AutoSelect />
         <AntdSelect />
         <div class="checkbox-area">
           <input type="checkbox" id="check" class="checkbox" @click="showTransitSelect = !showTransitSelect"/>

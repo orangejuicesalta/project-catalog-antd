@@ -1,16 +1,15 @@
 <script setup>
-import Modal from "./Modal.vue";
 import {ref} from 'vue';
+import {useStore} from '../stores/mainStore'
 
-let showModal = ref(false);
+const store = useStore()
+
 
 </script>
 
 <template>
     <p>Товар(-ы):</p>
-    <button @click="showModal=true">Нажмите, чтобы выбрать товар</button>
-    <Modal :show="showModal" @close="showModal=false" />
-
+    <button @click="store.showModal=true">Нажмите, чтобы выбрать товар</button>
 </template>
 
 <style lang="scss" scoped>

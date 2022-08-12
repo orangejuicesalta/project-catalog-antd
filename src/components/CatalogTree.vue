@@ -1,24 +1,25 @@
 <script setup>
-import {ref} from 'vue'
+import { ref } from "vue";
 defineProps({
-  label: String,
-  nodes: Array,
+  name: String,
+  children: Array,
 });
-let hideShow = ref(false)
+let hideShow = ref(false);
 
 function toggleHideShow() {
-    hideShow.value= !hideShow.value
+  hideShow.value = !hideShow.value;
 }
 </script>
 
 <template>
-  <div >
-    <div class="label" @click="toggleHideShow">
+  <div>
+    <div class="label">
       <input type="checkbox" />
-      {{ label }}
+      <span @click="toggleHideShow">{{ name }}</span>
     </div>
     <div class="child" v-if="hideShow">
-      <catalog-tree v-for="item in nodes" :label="item.label" :nodes="item.nodes"> </catalog-tree>
+      <catalog-tree v-for="item in children" :name="item.name" :children="item.children">
+      </catalog-tree>
     </div>
   </div>
 </template>
@@ -27,10 +28,15 @@ function toggleHideShow() {
 .label {
   display: flex;
   align-items: center;
+  padding-bottom: 10px;
 }
 .child {
-  border-left: 1px solid gray;
   margin-left: 10px;
   padding-left: 10px;
+}
+
+span {
+  padding-left: 5px;
+  cursor: pointer;
 }
 </style>

@@ -1,47 +1,48 @@
 <script setup>
 import CatalogTree from "./CatalogTree.vue";
 import ModalSearch from "./ModalSearch.vue";
-import { ref } from "vue";
-const props = defineProps({
-  show: Boolean,
-});
+import { onMounted, ref } from "vue";
+import { useStore } from "../stores/mainStore";
+import Catalog from "./Catalog.vue";
+import List from "./List.vue";
 
-let tree = ref({
-  label: "root",
-  nodes: [
-    {
-      label: "level1",
-      nodes: [
-        {
-          label: "level1.1",
-        },
-        {
-          label: "level1.2",
-          nodes: [
-            {
-              label: "level1.2.1",
-            },
-          ],
-        },
-      ],
-    },
-    {
-      label: 'level2'
-    }
-  ],
-});
+const store = useStore();
+
+
+// let tree = ref({
+//   name: "",
+//   children: [
+//     {
+//       name: "",
+//     },
+//   ],
+// });
+
+// async function getCatalog() {
+//   const res = await fetch("http://10.10.1.74:80/api/v1/catalog/categories", {
+//     headers: store.headers,
+//   });
+
+//   const data = (await res.json())[0];
+//   tree.value = await data;
+//   console.log(tree.value);
+// }
+
+// onMounted(() => getCatalog());
 </script>
 
 <template>
-  <div v-if="show" class="ovarlay">
-    <button @click="$emit('close')">
+  <div v-if="store.showModal" class="ovarlay">
+    <button @click="store.showModal=false">
       <img src="../assets/Vectorexit.svg" alt="icon" />
       <p>Закрыть</p>
     </button>
     <div class="modal">
       <ModalSearch />
       <section>
-        <CatalogTree :label="tree.label" :nodes="tree.nodes" />
+        <Catalog />
+        <List />
+        <!-- <CatalogTree :name="tree.name" :children="tree.children" /> -->
       </section>
     </div>
   </div>
@@ -59,8 +60,10 @@ $darkestColor: #029aad;
   z-index: 100;
   padding: 50px;
   section {
+    display: flex;
+    justify-content: space-between;
     width: 100%;
-    height: 100%;
+    height: 600px;
   }
 }
 .ovarlay {
@@ -69,7 +72,6 @@ $darkestColor: #029aad;
   left: 0;
   bottom: 0;
   width: 100%;
-  height: 100vh;
   background: rgba(0, 0, 0, 0.5);
   z-index: 90;
 }

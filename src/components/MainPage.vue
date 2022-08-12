@@ -2,7 +2,10 @@
 import SideBar from "./SideBar.vue";
 import Header from "./Header.vue";
 import MiddleSection from "./MiddleSection.vue";
+import Modal from './Modal.vue'
+import { useStore } from "@/stores/mainStore";
 
+const store = useStore()
 </script>
 
 <template>
@@ -13,6 +16,8 @@ import MiddleSection from "./MiddleSection.vue";
       <MiddleSection />
 
     </section>
+    <Modal  @="store.showModal = true" />
+
   </main>
 </template>
 
