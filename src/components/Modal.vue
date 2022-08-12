@@ -1,8 +1,34 @@
 <script setup>
 import CatalogTree from "./CatalogTree.vue";
 import ModalSearch from "./ModalSearch.vue";
+import { ref } from "vue";
 const props = defineProps({
   show: Boolean,
+});
+
+let tree = ref({
+  label: "root",
+  nodes: [
+    {
+      label: "level1",
+      nodes: [
+        {
+          label: "level1.1",
+        },
+        {
+          label: "level1.2",
+          nodes: [
+            {
+              label: "level1.2.1",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      label: 'level2'
+    }
+  ],
 });
 </script>
 
@@ -15,7 +41,7 @@ const props = defineProps({
     <div class="modal">
       <ModalSearch />
       <section>
-        <CatalogTree />
+        <CatalogTree :label="tree.label" :nodes="tree.nodes" />
       </section>
     </div>
   </div>

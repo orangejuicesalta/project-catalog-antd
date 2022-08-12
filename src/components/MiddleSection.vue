@@ -5,6 +5,7 @@ import ChooseBtn from "./ChooseBtn.vue";
 import ProductsList from "./ProductsList.vue";
 import AddWarehouse from "./AddWarehouse.vue";
 import {ref} from 'vue'
+import AntdSelect from "./antdSelect.vue";
 
 let showTransitSelect = ref(false)
 </script>
@@ -17,7 +18,8 @@ let showTransitSelect = ref(false)
         <p>Откуда:</p>
         <p>Куда:</p>
         <FromWarehouse />
-        <ToWarehouse />
+        <!-- <ToWarehouse /> -->
+        <AntdSelect />
         <div class="checkbox-area">
           <input type="checkbox" id="check" class="checkbox" @click="showTransitSelect = !showTransitSelect"/>
           <label for="check">Отправить через РЦ</label>
