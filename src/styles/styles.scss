@@ -1,0 +1,10 @@
+$lighestColor: #f2f7f8;
+$darkerColor: #ddeef2;
+$darkestColor: #029aad;
+@mixin flexbox($direction, $gap, $property1, $property2) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $property1;
+  align-items: $property2;
+  gap: $gap;
+}
