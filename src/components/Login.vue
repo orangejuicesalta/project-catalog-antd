@@ -78,6 +78,7 @@ async function signIn() {
 .greeting {
   font-size: 20px;
   margin-top: 50px;
+  color: white;
 }
 .form-container {
   display: flex;
@@ -108,25 +109,12 @@ async function signIn() {
   flex-direction: row;
   gap: 10px;
 }
-.eye {
-  cursor: pointer;
-}
+
 .input {
   border: none;
 }
 .input:focus {
   outline: none;
-}
-.checkbox-area {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 5px;
-  margin-bottom: 30px;
-}
-.description {
-  font-size: smaller;
 }
 button {
   background-color: #029aad;

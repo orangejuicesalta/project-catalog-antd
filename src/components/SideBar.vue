@@ -65,8 +65,8 @@ menu {
   z-index: 50; 
 }
 .menu__container {
-  // height: 100vh;
-  @include flexbox(column, 100px, center, center);
+  height: 100vh;
+  @include flexbox(column, 200px, center, center);
   padding: 50px;
   .menu__top {
     @include flexbox(column, 40px, center, center);
@@ -79,6 +79,7 @@ menu {
       }
       p {
         margin-top: 18px;
+        margin-bottom: 0;
       }
       img {
         background-color: $darkerColor;
@@ -96,6 +97,8 @@ menu {
     p {
         color: $darkestColor;
         font-weight: bolder;
+        margin-bottom: 0;
+
     }
     .logout{
       cursor: pointer;
