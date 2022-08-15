@@ -38,8 +38,20 @@ async function getCatalog() {
 onMounted(() => getCatalog());
 
 watch(checkedKeys, () => {
-  console.log(checkedKeys._rawValue)
+  console.log(checkedKeys)
   productStore.checkedProduct = checkedKeys._rawValue;
 
 });
 </script>
+
+<style>
+.ant-tree .ant-tree-treenode {
+  padding-bottom: 20px !important;
+}
+.ant-tree {
+  font-size: 17px;
+  font-weight: 400;
+  color: #001529;
+;
+}
+</style>

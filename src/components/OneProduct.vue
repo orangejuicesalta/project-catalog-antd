@@ -1,24 +1,34 @@
+<script setup>
+import { useStore } from "@/stores/mainStore";
+
+const store = useStore();
+</script>
+
 <template>
-  <div class="one_product">
-    <p class="item">1</p>
-    <p class="item">Название товара в одну строку, название товара в одну строку</p>
+  <div class="one_product" v-for="(product, index) in store.tableItems" :key="product.id">
+    <p class="item">{{ index + 1 }}</p>
+    <p class="item">{{ product.attributes.full_name }}</p>
     <div class="wrap item">
       <select class="item">
         <option value="" default selected>Новый</option>
       </select>
     </div>
     <input class="item" type="text" />
-    <img class="item" src="../assets/Vectordelete.svg" alt="" />
+    <img class="item icon" src="../assets/Vectordelete.svg" alt="" />
   </div>
 </template>
 
 <style lang="scss" scoped>
 .one_product {
   background-color: white;
-  padding: 16px 23px;
+  padding: 16px;
   display: grid;
-  grid-template-columns: 0.1fr 2.4fr 1.08fr 1.08fr 0.52fr;
+  grid-template-columns: 25px 600px 270px 270px auto;
   column-gap: 50px;
+  &:nth-child(2n + 1) {
+    background-color: #f0f0f0;
+  }
+
   input {
     height: 35px;
     width: 270px;
@@ -30,6 +40,11 @@
   .item {
     display: flex;
     align-items: center;
+    margin: 0;
+  }
+  .icon {
+    margin-top: 5px;
+    margin-right: 30px;
   }
 }
 .wrap::after {
@@ -41,6 +56,8 @@
   transform: translateY(-50%);
 }
 .wrap {
+  display: flex;
+  align-items: flex-start;
   position: relative;
   select {
     height: 35px;

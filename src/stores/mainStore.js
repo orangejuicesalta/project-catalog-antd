@@ -10,9 +10,7 @@ export const useStore = defineStore("main", () => {
     Accept: "application/json",
   };
   let transfer = reactive({
-    sender_id: "",
-    receiver_id: "",
-    transit_id: "",
+    
     products: [
       // {
       //     product_id: '',
@@ -21,12 +19,15 @@ export const useStore = defineStore("main", () => {
       // }
     ],
   });
-
+  let selectedItems = ref([]);
+  let tableItems = ref([])
 
   return {
     catalogAPI,
     headers,
     transfer,
     showModal,
+    selectedItems,
+    tableItems
   };
 });

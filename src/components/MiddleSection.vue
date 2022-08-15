@@ -2,11 +2,12 @@
 import ChooseBtn from "./ChooseBtn.vue";
 import ProductsList from "./ProductsList.vue";
 import AddWarehouse from "./AddWarehouse.vue";
-import {ref} from 'vue'
+import { ref } from "vue";
 import AntdSelect from "./antdSelect.vue";
 import AutoSelect from "./autoSelect.vue";
+import Buttons from "./Buttons.vue";
 
-let showTransitSelect = ref(false)
+let showTransitSelect = ref(false);
 </script>
 
 <template>
@@ -19,7 +20,12 @@ let showTransitSelect = ref(false)
         <AutoSelect />
         <AntdSelect />
         <div class="checkbox-area">
-          <input type="checkbox" id="check" class="checkbox" @click="showTransitSelect = !showTransitSelect"/>
+          <input
+            type="checkbox"
+            id="check"
+            class="checkbox"
+            @click="showTransitSelect = !showTransitSelect"
+          />
           <label for="check">Отправить через РЦ</label>
         </div>
       </section>
@@ -27,7 +33,7 @@ let showTransitSelect = ref(false)
       <ChooseBtn />
       <ProductsList />
     </section>
-    <button>Создать перемещение</button>
+    <Buttons text="Создать перемещение" />
   </section>
 </template>
 
@@ -72,18 +78,6 @@ $darkestColor: #029aad;
         color: #7f7f7f;
       }
     }
-  }
-  button {
-    height: 50px;
-    width: 277px;
-    border-radius: 5px;
-    padding: 13px, 30px, 13px, 30px;
-    background-color: $darkestColor;
-    color: white;
-    font-weight: 400;
-    border: none;
-    font-size: medium;
-    cursor: pointer;
   }
 }
 </style>

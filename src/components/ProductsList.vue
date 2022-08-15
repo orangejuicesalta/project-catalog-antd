@@ -33,7 +33,7 @@ $gray: #c4c4c4;
     .table__titles {
       padding: 16px;
       display: grid;
-      grid-template-columns: 0.1fr 2.4fr 1.08fr 1.08fr .52fr;
+      grid-template-columns: 25px 600px 270px 270px auto;
       column-gap: 50px;
     }
   }

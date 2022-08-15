@@ -9,10 +9,8 @@ export const productsStore = defineStore("product", () => {
   let products = ref([]);
 
   async function getProducts() {
-    console.log("hiiiii");
     const checkedList = checkedProduct._rawValue.join(",");
     if (checkedList) {
-      console.log(checkedList);
       const res = await fetch(
         `http://10.10.1.74:80/api/v1/catalog/search/categories-product?categories=${checkedList}`,
         {
@@ -21,7 +19,6 @@ export const productsStore = defineStore("product", () => {
       );
       const data = await res.json();
       products.value = await data;
-      console.log(products.value);
     } else {
       products.value = [];
     }
