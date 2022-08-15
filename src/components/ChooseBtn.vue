@@ -1,41 +1,38 @@
 <script setup>
-import {ref} from 'vue';
-import {useStore} from '../stores/mainStore'
+import { useStore } from "../stores/mainStore";
 
-const store = useStore()
-
-
+const store = useStore();
 </script>
 
 <template>
-    <p>Товар(-ы):</p>
-    <button @click="store.showModal=true">Нажмите, чтобы выбрать товар</button>
+  <p>Товар(-ы):</p>
+  <button @click="store.showModal = true">Нажмите, чтобы выбрать товар</button>
 </template>
 
 <style lang="scss" scoped>
 $lighestColor: #f2f7f8;
 $darkerColor: #ddeef2;
 $darkestColor: #029aad;
-$gray: #C4C4C4;
+$gray: #c4c4c4;
 
-p{
-    font-size: large;
-    color: #7F7F7F;
-    margin-top: 30px;
-    margin-bottom: 20px;
- }
- button {
-    width: 100%;
-    height: 60px;
-    padding: 20px;
-    border-radius: 5px;
-    color: $darkestColor;
-    font-size: 20px;
-    font-weight: 400;
-    text-align: center;
-    border: 1px solid $gray;
-    background-color: white;
-    cursor: pointer;
-    margin-bottom: 30px;
- }
+p {
+  font-size: large;
+  color: #7f7f7f;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+button {
+  width: 100%;
+  height: 60px;
+  padding: 20px;
+  border-radius: 5px;
+  color: $darkestColor;
+  font-size: 20px;
+  font-weight: 400;
+  text-align: center;
+  border: 1px solid $gray;
+  background-color: white;
+  cursor: pointer;
+  margin-bottom: 30px;
+}
 </style>

@@ -1,39 +1,21 @@
 <script setup>
-import CatalogTree from "./CatalogTree.vue";
 import ModalSearch from "./ModalSearch.vue";
-import { onMounted, ref } from "vue";
 import { useStore } from "../stores/mainStore";
 import Catalog from "./Catalog.vue";
 import List from "./List.vue";
+import { productsStore } from "@/stores/productsStore";
 
 const store = useStore();
-
-
-// let tree = ref({
-//   name: "",
-//   children: [
-//     {
-//       name: "",
-//     },
-//   ],
-// });
-
-// async function getCatalog() {
-//   const res = await fetch("http://10.10.1.74:80/api/v1/catalog/categories", {
-//     headers: store.headers,
-//   });
-
-//   const data = (await res.json())[0];
-//   tree.value = await data;
-//   console.log(tree.value);
-// }
-
-// onMounted(() => getCatalog());
+const productStore = productsStore();
+function closeModal() {
+  store.showModal = false;
+  productStore.resetStore();
+}
 </script>
 
 <template>
   <div v-if="store.showModal" class="ovarlay">
-    <button @click="store.showModal=false">
+    <button @click="closeModal()">
       <img src="../assets/Vectorexit.svg" alt="icon" />
       <p>Закрыть</p>
     </button>
@@ -42,7 +24,6 @@ const store = useStore();
       <section>
         <Catalog />
         <List />
-        <!-- <CatalogTree :name="tree.name" :children="tree.children" /> -->
       </section>
     </div>
   </div>
@@ -60,10 +41,8 @@ $darkestColor: #029aad;
   z-index: 100;
   padding: 50px;
   section {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    height: 600px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
 }
 .ovarlay {

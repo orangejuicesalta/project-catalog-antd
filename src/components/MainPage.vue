@@ -2,10 +2,10 @@
 import SideBar from "./SideBar.vue";
 import Header from "./Header.vue";
 import MiddleSection from "./MiddleSection.vue";
-import Modal from './Modal.vue'
+import Modal from "./Modal.vue";
 import { useStore } from "@/stores/mainStore";
 
-const store = useStore()
+const store = useStore();
 </script>
 
 <template>
@@ -14,10 +14,8 @@ const store = useStore()
     <section class="main_content">
       <Header />
       <MiddleSection />
-
     </section>
-    <Modal  @="store.showModal = true" />
-
+    <Modal />
   </main>
 </template>
 
@@ -31,13 +29,13 @@ main {
   margin: 0 auto;
 }
 .main_content {
-    padding: 30px 80px 30px 330px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
+  padding: 30px 80px 30px 330px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 body {
-  background:#F2F7F8;
+  background: #f2f7f8;
 }
 </style>

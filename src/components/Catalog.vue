@@ -13,11 +13,13 @@
 </template>
 
 <script setup>
+import { productsStore } from "@/stores/productsStore";
 import { onMounted, ref, watch } from "vue";
 import { useStore } from "../stores/mainStore";
 
 const store = useStore();
-const checkedKeys = ref("");
+const productStore = productsStore();
+const checkedKeys = ref([]);
 const fieldNames = {
   title: "name",
   key: "id",
@@ -36,6 +38,8 @@ async function getCatalog() {
 onMounted(() => getCatalog());
 
 watch(checkedKeys, () => {
-  store.checkedProduct = checkedKeys._rawValue;
+  console.log(checkedKeys._rawValue)
+  productStore.checkedProduct = checkedKeys._rawValue;
+
 });
 </script>
