@@ -11,6 +11,7 @@ export const productsStore = defineStore("product", () => {
   let text = ref("");
   let searchOptions = ref([]);
   let treeData = ref([]);
+  let checkedItems= ref([])
 
   async function getProducts() {
     const checkedList = checkedProduct._rawValue.join(",");
@@ -64,5 +65,6 @@ export const productsStore = defineStore("product", () => {
     selectedItems,
     text,
     treeData,
+    checkedItems
   };
 });

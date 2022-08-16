@@ -4,9 +4,9 @@ import { productsStore } from "../stores/productsStore";
 const store = productsStore();
 
 function selectItem(event, product) {
-  event.target.parentElement.classList.toggle("checked");
   if (event.target.checked) {
     store.selectedItems.push(product);
+    event.target.parentElement.classList.toggle("checked");
   } else {
     store.selectedItems = store.selectedItems.filter(item => item !== product);
   }
@@ -14,14 +14,19 @@ function selectItem(event, product) {
 </script>
 
 <template>
-  <div v-if="store.products" class="list">
-    <div class="border">
-      <p v-for="product in store.products" :key="product.id">
-        <input type="checkbox" @change="selectItem($event, product)" />
-        <span class="product">{{ product.attributes.full_name }}</span>
-      </p>
+    <div  class="list">
+      <div class="border">
+        <p v-for="product in store.products" :key="product.id">
+          <input
+            type="checkbox"
+            @change="selectItem($event, product)"
+            :value="product.id"
+            v-model="store.checkedItems"
+          />
+          <span class="product">{{ product.attributes.full_name }}</span>
+        </p>
+      </div>
     </div>
-  </div>
 </template>
 
 <style lang="scss" scoped>

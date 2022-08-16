@@ -30,7 +30,7 @@ input {
   padding: 20px;
   border-radius: 10px;
   border: 1px solid #f0f0f0;
-  font-size: medium;
+  font-size: 17px;
   font-weight: 400;
   box-shadow: 0px 0px 30px rgba(2, 154, 173, 0.15);
 }

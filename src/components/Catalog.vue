@@ -1,12 +1,12 @@
 <template>
   <a-tree
-    v-model:checkedKeys="checkedKeys"
+    v-model:checkedKeys="productStore.checkedProduct"
     checkable
     :height="620"
     :tree-data="productStore.treeData"
     :field-names="fieldNames"
   >
-    <template #title="{ name }">
+    <template>
       <span>{{ name }}</span>
     </template>
   </a-tree>
@@ -17,16 +17,11 @@ import { productsStore } from "@/stores/productsStore";
 import { ref, watch } from "vue";
 
 const productStore = productsStore();
-const checkedKeys = ref([]);
 const fieldNames = {
   title: "name",
   key: "id",
 };
 
-watch(checkedKeys, () => {
-  console.log(checkedKeys);
-  productStore.checkedProduct = checkedKeys._rawValue;
-});
 </script>
 
 <style>
