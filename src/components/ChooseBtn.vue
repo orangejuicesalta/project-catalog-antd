@@ -22,6 +22,7 @@ p {
   margin-bottom: 20px;
 }
 button {
+  transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
   width: 100%;
   height: 60px;
   padding: 20px;
@@ -33,6 +34,5 @@ button {
   border: 1px solid $gray;
   background-color: white;
   cursor: pointer;
-  margin-bottom: 30px;
 }
 </style>

@@ -3,9 +3,10 @@ import ChooseBtn from "./ChooseBtn.vue";
 import ProductsList from "./ProductsList.vue";
 import AddWarehouse from "./AddWarehouse.vue";
 import { ref } from "vue";
-import AntdSelect from "./antdSelect.vue";
-import AutoSelect from "./autoSelect.vue";
 import Buttons from "./Buttons.vue";
+import SenderWarehouse from "./senderWarehouse.vue";
+import RecieverWarehouse from "./recieverWarehouse.vue";
+
 
 let showTransitSelect = ref(false);
 </script>
@@ -17,8 +18,8 @@ let showTransitSelect = ref(false);
       <section class="main__content__section">
         <p>Откуда:</p>
         <p>Куда:</p>
-        <AutoSelect />
-        <AntdSelect />
+       <SenderWarehouse />
+       <RecieverWarehouse />
         <div class="checkbox-area">
           <input
             type="checkbox"
@@ -33,7 +34,7 @@ let showTransitSelect = ref(false);
       <ChooseBtn />
       <ProductsList />
     </section>
-    <Buttons text="Создать перемещение" />
+    <Buttons text="Создать перемещение" class="button"/>
   </section>
 </template>
 
@@ -72,6 +73,7 @@ $darkestColor: #029aad;
       .checkbox-area {
         @include flexbox(row, 8px, flex-start, center);
         margin: 10px 0 10px;
+        cursor: pointer;
       }
       p {
         font-size: large;
@@ -79,5 +81,8 @@ $darkestColor: #029aad;
       }
     }
   }
+}
+.button{
+  font-size: 20px;
 }
 </style>

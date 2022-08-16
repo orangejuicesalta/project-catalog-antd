@@ -1,15 +1,14 @@
 <script setup>
 import { productsStore } from "../stores/productsStore";
-import { useStore } from "../stores/mainStore";
 
-const mainStore = useStore();
 const store = productsStore();
 
 function selectItem(event, product) {
+  event.target.parentElement.classList.toggle("checked");
   if (event.target.checked) {
-    mainStore.selectedItems.push(product);
+    store.selectedItems.push(product);
   } else {
-    mainStore.selectedItems = mainStore.selectedItems.filter(item => item !== product);
+    store.selectedItems = store.selectedItems.filter(item => item !== product);
   }
 }
 </script>
@@ -47,5 +46,8 @@ function selectItem(event, product) {
 }
 .product {
   padding-left: 15px;
+}
+.checked {
+  color: #029aad;
 }
 </style>

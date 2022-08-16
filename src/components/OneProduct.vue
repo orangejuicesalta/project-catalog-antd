@@ -1,20 +1,34 @@
 <script setup>
 import { useStore } from "@/stores/mainStore";
+import { tableStore } from "../stores/tableStore";
 
-const store = useStore();
+const storeTable = tableStore();
+
+function remove(event, product) {
+  if (event.target) {
+    storeTable.tableItems = storeTable.tableItems.filter(item => item !== product);
+  }
+}
 </script>
 
 <template>
-  <div class="one_product" v-for="(product, index) in store.tableItems" :key="product.id">
+  <div class="one_product" v-for="(product, index) in storeTable.tableItems" :key="product.id">
     <p class="item">{{ index + 1 }}</p>
     <p class="item">{{ product.attributes.full_name }}</p>
     <div class="wrap item">
       <select class="item">
-        <option value="" default selected>Новый</option>
+        <option value="" default selected>Новый(5 шт.)</option>
+        <option value="" >Брак(5 шт.)</option>
+        <option value="" >Дефект(5 шт.)</option>
       </select>
     </div>
-    <input class="item" type="text" />
-    <img class="item icon" src="../assets/Vectordelete.svg" alt="" />
+    <input class="item" type="number" value="1" />
+    <img
+      class="item icon"
+      src="../assets/Vectordelete.svg"
+      alt="icon"
+      @click="remove($event, product)"
+    />
   </div>
 </template>
 
@@ -45,6 +59,7 @@ const store = useStore();
   .icon {
     margin-top: 5px;
     margin-right: 30px;
+    cursor: pointer;
   }
 }
 .wrap::after {

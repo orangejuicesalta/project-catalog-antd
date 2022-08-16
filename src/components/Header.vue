@@ -1,12 +1,12 @@
-<script setup>
-import Search from "./Search.vue";
-</script>
 
 <template>
   <header>
     <section class="left">
       <img src="../assets/Back.svg" alt="icon" />
-      <Search />
+      <div class="search">
+    <img src="../assets/Iconsearch.svg" alt="icon">
+<input type="text" placeholder="Поиск"/>
+</div>
     </section>
     <section class="right">
       <img class="icon" src="../assets/Iconnotifications.svg" alt="icon" />
@@ -14,7 +14,7 @@ import Search from "./Search.vue";
       <section>
         <img src="../assets/Avaavatar.svg" alt="ava" />
         <div class="user__info">
-          <p>firstNAme LAstNAme</p>
+          <p>firstName LastName</p>
           <p>role/position</p>
         </div>
         <img src="../assets/Iconlogout.svg" alt="icon" />
@@ -64,5 +64,23 @@ header {
       }
     }
   }
+}
+.search{
+    display: flex;
+    flex-wrap: row;
+    justify-content: center;
+    gap: 25px
+}
+input{
+    border: none;
+    background-color: transparent;
+    width: 300px;
+    padding-left: 2px;
+    font-size:medium;
+}
+input:focus {
+    background-color: white;
+    outline: none;
+    
 }
 </style>

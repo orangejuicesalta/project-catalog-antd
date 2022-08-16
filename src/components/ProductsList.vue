@@ -1,9 +1,11 @@
 <script setup>
 import OneProduct from "./OneProduct.vue";
+import { tableStore } from "../stores/tableStore";
+const storeTable = tableStore();
 </script>
 
 <template>
-  <div class="products__list__wrap">
+  <div v-if="storeTable.tableItems.length != 0" class="products__list__wrap">
     <section>
       <div class="table__titles">
         <p>№</p>
@@ -23,6 +25,7 @@ $darkestColor: #029aad;
 $gray: #c4c4c4;
 
 .products__list__wrap {
+  margin-top: 30px;
   width: 100%;
   border-radius: 5px;
   border: 1px solid $gray;

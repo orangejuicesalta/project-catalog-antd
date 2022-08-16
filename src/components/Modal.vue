@@ -4,9 +4,10 @@ import { useStore } from "../stores/mainStore";
 import Catalog from "./Catalog.vue";
 import List from "./List.vue";
 import { productsStore } from "@/stores/productsStore";
+import { tableStore } from "../stores/tableStore";
 import Buttons from "./Buttons.vue";
-import { assertDeclaration, assertDeclareModule } from "@babel/types";
 
+const storeTable = tableStore();
 const store = useStore();
 const productStore = productsStore();
 function closeModal() {
@@ -15,18 +16,17 @@ function closeModal() {
 }
 
 function select() {
-  if(store.tableItems) {
-    store.tableItems = store.selectedItems;
-  store.showModal = false
+  if (productStore.selectedItems) {
+    storeTable.tableItems = productStore.selectedItems;
+    store.showModal = false;
   } else {
-    alert('Choose products')
+    alert("Choose products");
   }
-  ;
 }
 </script>
 
 <template>
-  <div v-if="store.showModal" class="ovarlay">
+  <div v-if="store.showModal" class="ovarlay" @click.self="store.showModal=!store.showModal">
     <div>
       <button class="modal__close" @click="closeModal()">
         <img src="../assets/Vectorexit.svg" alt="icon" />
@@ -35,12 +35,14 @@ function select() {
     </div>
 
     <div class="modal">
-      <ModalSearch />
-      <section>
-        <Catalog />
-        <List />
-      </section>
-      <Buttons @click="select()" text="Выбрать товар" class="button" />
+      <div class="modal__content">
+        <ModalSearch />
+        <section>
+          <Catalog />
+          <List />
+        </section>
+        <Buttons @click="select()" text="Выбрать товар" class="button" />
+      </div>
     </div>
   </div>
 </template>
@@ -56,6 +58,7 @@ $darkestColor: #029aad;
   right: 0;
   z-index: 100;
   padding: 50px;
+  animation: fadeInFromLeft 0.25s both;
   &__close {
     position: absolute;
     height: 40px;
@@ -88,6 +91,7 @@ $darkestColor: #029aad;
   margin: 50px auto 0 auto;
   width: 202px;
   height: 50px;
+  font-size: 20px;
 }
 .ovarlay {
   position: fixed;
