@@ -38,6 +38,11 @@ $gray: #c4c4c4;
       display: grid;
       grid-template-columns: 25px 600px 270px 270px auto;
       column-gap: 50px;
+      p {
+        color: $darkestColor;
+        font-weight: bold;
+        margin-bottom: 0;
+      }
     }
   }
 }
