@@ -14,7 +14,6 @@
 
 <script setup>
 import { productsStore } from "@/stores/productsStore";
-import { ref, watch } from "vue";
 
 const productStore = productsStore();
 const fieldNames = {

@@ -9,24 +9,25 @@ function selectItem(event, product) {
     event.target.parentElement.classList.toggle("checked");
   } else {
     store.selectedItems = store.selectedItems.filter(item => item !== product);
+    event.target.parentElement.classList.remove("checked");
   }
 }
 </script>
 
 <template>
-    <div  class="list">
-      <div class="border">
-        <p v-for="product in store.products" :key="product.id">
-          <input
-            type="checkbox"
-            @change="selectItem($event, product)"
-            :value="product.id"
-            v-model="store.checkedItems"
-          />
-          <span class="product">{{ product.attributes.full_name }}</span>
-        </p>
-      </div>
+  <div class="list">
+    <div class="border">
+      <p v-for="product in store.products" :key="product.id">
+        <input
+          type="checkbox"
+          @change="selectItem($event, product)"
+          :value="product.id"
+          v-model="store.checkedItems"
+        />
+        <span class="product">{{ product.attributes.full_name }}</span>
+      </p>
     </div>
+  </div>
 </template>
 
 <style lang="scss" scoped>

@@ -1,12 +1,14 @@
 <script setup>
-import { useStore } from "@/stores/mainStore";
 import { tableStore } from "../stores/tableStore";
+import { productsStore } from "@/stores/productsStore";
 
 const storeTable = tableStore();
+const productStore = productsStore();
 
 function remove(event, product) {
   if (event.target) {
     storeTable.tableItems = storeTable.tableItems.filter(item => item !== product);
+    productStore.checkedItems = productStore.checkedItems.filter(item => item !== product.id);
   }
 }
 </script>
@@ -18,8 +20,8 @@ function remove(event, product) {
     <div class="wrap item">
       <select class="item">
         <option value="" default selected>Новый(5 шт.)</option>
-        <option value="" >Брак(5 шт.)</option>
-        <option value="" >Дефект(5 шт.)</option>
+        <option value="">Брак(5 шт.)</option>
+        <option value="">Дефект(5 шт.)</option>
       </select>
     </div>
     <input class="item" type="number" value="1" />

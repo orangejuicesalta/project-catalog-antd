@@ -2,22 +2,22 @@
 <template>
   <header>
     <section class="left">
-      <img src="../assets/Back.svg" alt="icon" />
+      <img class="wrap" src="../assets/Back.svg" alt="icon" />
       <div class="search">
     <img src="../assets/Iconsearch.svg" alt="icon">
 <input type="text" placeholder="Поиск"/>
 </div>
     </section>
     <section class="right">
-      <img class="icon" src="../assets/Iconnotifications.svg" alt="icon" />
-      <img class="icon" src="../assets/Iconsettings.svg" alt="icon" />
+      <img  class="icon wrap" src="../assets/Iconnotifications.svg" alt="icon" />
+      <img class="icon wrap" src="../assets/Iconsettings.svg" alt="icon" />
       <section>
-        <img src="../assets/Avaavatar.svg" alt="ava" />
+        <img src="../assets/Avaavatar.svg" alt="ava" class="wrap"/>
         <div class="user__info">
           <p>firstName LastName</p>
           <p>role/position</p>
         </div>
-        <img src="../assets/Iconlogout.svg" alt="icon" />
+        <img src="../assets/Iconlogout.svg" alt="icon" class="wrap"/>
       </section>
     </section>
   </header>
@@ -41,7 +41,7 @@ header {
   height: 40px;
   .left {
     @include flexbox(row, 30px, center, center);
-    img {
+    .wrap {
       background-color: $darkerColor;
       padding: 8px;
       border-radius: 5px;
